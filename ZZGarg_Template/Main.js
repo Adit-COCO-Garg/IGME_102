@@ -11,7 +11,8 @@
  * Summarize code that you add
  */
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	canvasCreat();
+	
 
 }
 
@@ -21,4 +22,10 @@ function setup() {
  */
 function draw() {
 
+}
+//Canvas setup
+function canvasCreat(){
+	createCanvas(600, 600); //canvas 600x600
+	colorMode(HSB, 360, 100, 100); //color mode set to HSB
+	background(195, 2, 83); //Light gray background
 }
