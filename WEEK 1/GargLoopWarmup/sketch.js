@@ -13,12 +13,13 @@ var canvas, number1, number2;
  * setup : Initialization runs once; called automatically
  * Summarize code that you add
  */
+
 function setup() {
 	canvasCreat(); //canvas creator function called
 	background(195, 2, 83); //Light Gray Background
 	for (let i = 0; i <= 7; i++) {
 		for (let j = 0; j <= 7; j++) {
-
+			fill((j*35),100,random(100));
 			rect(20 + (i * 95), 20 + (j * 95), 90, 90);
 		}
 	}

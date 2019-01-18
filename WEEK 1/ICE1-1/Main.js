@@ -13,6 +13,7 @@ var hue, xPos, yPos,xSpeed=3,ySpeed=2;
  * setup : Initialization runs once; called automatically
  * Setup creates a canvas and defines initial value of the X,Y cordinates of the ellipse to be the center of canvas
  */
+
 function setup() {
 	canvasCreat(); //canvas creator function called
 	xPos = width / 2; //x coordinate is at the center of the screen

@@ -3,7 +3,6 @@
  * IGME-101: Assignment Name, m/d/18
  * Summarization of sketch activity
  */
-
 "use strict"; //catch some common coding errors
 
 //Global variables
