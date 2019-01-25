@@ -6,7 +6,7 @@
 "use strict"; //catch some common coding errors
 
 //Global variables
-var canvas;
+var canvas, someCandy;
 
 /**
  * setup : Initialization runs once; called automatically
@@ -15,6 +15,8 @@ var canvas;
 function setup() {
 	canvasCreat(); //canvas creator function called
 	background(195, 2, 83); //Light Gray Background
+    someCandy = new candy("purple");
+    someCandy.display();
 }
 
 /**
@@ -24,6 +26,37 @@ function setup() {
 function draw() {
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * canvasCreat : Canvas creator code and defaults
  * creates a canvas and sets some default values
@@ -37,3 +70,4 @@ function canvasCreat(){
     //--------
 	noStroke(); //No stroke
 }
+
