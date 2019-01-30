@@ -1,7 +1,7 @@
 /**
  * Adit Garg
- * IGME-101: Assignment Name, m/d/18
- * Summarization of sketch activity
+ * IGME-101: Assignment Name, 1/27/19
+ * summon a candy board with random candies 
  */
 "use strict"; //catch some common coding errors
 

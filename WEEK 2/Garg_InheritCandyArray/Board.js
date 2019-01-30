@@ -1,14 +1,10 @@
 /**
- * WM Harris, 12/5/2018
- * GCell : one cell of text *that moves in circle*
- * to display on canvas
+ * Adit Garg, 1/27/2019
+ * Board : Creates a candy board andcandies
  */
 class Board {
     /**
-     * constructor: make cell with x-coord & name. Name animates in circle
-     * @param x - number, x-coord value
-     * @param y - number, y-coord value
-     * @param name - string, cell label
+     * constructor: make cell with x-coord, y cord, color. margin and size
      */
     constructor() {
         this.candies = [];
@@ -30,7 +26,7 @@ class Board {
         }
     }
 
-    getNewCandy() {
+    getNewCandy() {//makes a new candy
         let candy;
         let candyColor = this.colors[floor(random(this.colors.length))];
         let candyPicker = floor(random(this.colors.length));
@@ -50,7 +46,7 @@ class Board {
      * display: draw name on canvas at location coords
      */
     display() {
-        //Access each row in gcells
+        //Access each row in candies
         for (let c = 0; c < (this.cols); c++) {
             let candyColumn = []; //localVariable for a row of cells
             for (let r = 0; r < (this.rows); r++) {
