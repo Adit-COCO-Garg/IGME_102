@@ -1,6 +1,6 @@
 /**
  * Adit Garg
- * IGME-101: Birthday Type 2, 1/29/19
+ * IGME-102: Birthday Type 2, 1/29/19
  * Bouncing excerpts from oscar wilde's play: The importance of being earnest, are constantly chaning color. The background color and text color contrast only when user is over that block. The text stops moving and text is visible.
  */
 "use strict"; //catch some common coding errors
