@@ -1,24 +1,22 @@
 /**
  * Adit Garg
- * IGME-101: Assignment Name, m/d/18
- * Summarization of sketch activity
+ * IGME-102: CandyStack 4-2, 2/9/19
+ * test and preform a bunch of stack functions and
+ * make and destroy candies using key events
  */
 "use strict"; //catch some common coding errors
 
 //Global variables
-var canvas, myCandyStack;
+var myCandyStack;
 
 /**
  * setup : Initialization runs once; called automatically
  * Summarize code that you add
  */
 function setup() {
-	canvasCreat(); //canvas creator function called
-	background(195, 2, 83); //Light Gray Background
+	createCanvas(300, 600); // defining the canvas
 	testStack();
-	myCandyStack = new CandyStack;
-
-
+	myCandyStack = new CandyStack();
 }
 
 /**
@@ -28,37 +26,26 @@ function setup() {
 function draw() {
 	background("white");
 	myCandyStack.display();
-
 }
+
 /**
- * canvasCreat : Canvas creator code and defaults
- * creates a canvas and sets some default values
+ * keyTyped: On a key press checks for -, =, and c key events
+ * and calls upon candy functionsaccordingly
  */
-function canvasCreat() {
-	//Canvas setup
-	canvas = createCanvas(300, 600); // defining the canvas as a variable allows it to be versatile
-	canvas.position(0, 0); //due to the variable's versatility the DOM library allows to define position
-	canvas.style("z-index", "-1"); //due to the variable's versatility the DOM library allows to define the hirearchy of view/ z index (a css property)
-	colorMode(HSB, 360, 100, 100); //color mode set to HSB
-	//--------
-	noStroke(); //No stroke
-}
-
 function keyTyped(){
 	if(key=="-"){
-		myCandyStack.pop();
+		myCandyStack.pop(); //pops a candy
 	}
 	if(key=="c"){
-		myCandyStack.clear();
+		myCandyStack.clear(); //Clears all the candy objects - annihlation 
 	}
-	if(key=="="){
-		let cColor= color(myCandyStack.size()*10,125,125);
-		myCandyStack.push(new candy(cColor));
+	if(key=="="){ //spawn a candy
+		let cColor= color(myCandyStack.size*10,125,125);
+		myCandyStack.push(new Candy(cColor));
 	}
 }
 /**
- * draw : Periodically called automatically
- * Summarize code that you add
+ * TestStack : Playing around with stacks and using stack functions
  */
 function testStack() {
 	let myStack = new stack([1, 2, 3, 4]);
