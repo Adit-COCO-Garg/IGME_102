@@ -15,6 +15,7 @@ var canvas;
 function setup() {
 	canvasCreat(); //canvas creator function called
 	background(195, 2, 83); //Light Gray Background
+	testQueue();
 }
 
 /**
@@ -36,4 +37,7 @@ function canvasCreat(){
     colorMode(HSB, 360, 100, 100); //color mode set to HSB
     //--------
 	noStroke(); //No stroke
+}
+function testQueue(){
+	let myQueue= new queue([1,2,3,4])
 }
