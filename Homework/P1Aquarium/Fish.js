@@ -29,7 +29,6 @@ class Fish {
 
 	water(y) {
 		background("white");
-
 		fill(187,85,82);
 		// We are going to draw a polygon out of the wave points
 		beginShape();
@@ -42,7 +41,7 @@ class Fish {
 			// Calculate a y value according to noise, map to
 
 			// Option #1: 2D Noise
-			let y = map(noise(xoff, this.yoff), 0, 1, 200, 250);
+			let y = map(noise(xoff, this.yoff), 0, 0.8, 50, 100);
 
 			// Option #2: 1D Noise
 			// let y = map(noise(xoff), 0, 1, 200,300);
@@ -53,7 +52,7 @@ class Fish {
 			xoff += 0.05;
 		}
 		// increment y dimension for noise
-		this.yoff += 0.01;//speed of wavy boi
+		this.yoff += 0.001;//speed of wavy boi
 		vertex(width, height);
 		vertex(0, height);
 		endShape(CLOSE);
