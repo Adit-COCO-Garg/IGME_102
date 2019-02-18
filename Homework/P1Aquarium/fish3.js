@@ -11,7 +11,7 @@ class fish3 extends Fish {
         super();
     }
 	display(y) {
-       super.display(y);
+       super.display(y,2);
 		
 	}
 
