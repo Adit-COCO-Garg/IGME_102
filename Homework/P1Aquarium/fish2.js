@@ -8,9 +8,10 @@
 
 class fish2 extends Fish {
     constructor() {
-        
+        super();
     }
-	display(){
+	display(y) {
+       super.display(y);
 		
 	}
 

@@ -1,17 +1,19 @@
 /**
  * Adit Garg, 1/24/19
- * Candy class - creates a type of candy (child)
+ * Wrapped class - creates a type of candy (child)
  * Properties:
- *  sugar=3
+ *  sugar: 10
  */
 "use strict";
 
-class fish1 extends Fish {
+class fish4 extends Fish {
     constructor() {
         super();
     }
-    display(y) {
+	display(y) {
        super.display(y);
-    }
+		
+	}
 
+   
 }

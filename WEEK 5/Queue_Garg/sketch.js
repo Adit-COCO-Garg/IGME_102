@@ -1,12 +1,15 @@
 /**
  * Adit Garg
- * IGME-101: Assignment Name, m/d/18
- * Summarization of sketch activity
+ * IGME-102: Queue 5-1, 2/13/19
+ * test and preform a bunch of queue functions and
+ * make a queue of images and allow it preform actions
+ * based upon user input
  */
 "use strict"; //catch some common coding errors
 
 //Global variables
-var canvas;
+let coverQ;
+const covers=["arethaCovers/AmazingGrace.jpg", "arethaCovers/ArethaArrives.jpg", "arethaCovers/ArethaNow.jpg", "arethaCovers/INeverLoved.jpg", "arethaCovers/LadySoul.jpg", "arethaCovers/Sparkle.jpg", "arethaCovers/SpiritInTheDark.jpg", "arethaCovers/ThisGirl.jpg", "arethaCovers/WhosZoomingWho.jpg", "arethaCovers/YoungGiftedAndBlack.jpg"]
 
 /**
  * setup : Initialization runs once; called automatically
@@ -16,6 +19,7 @@ function setup() {
 	canvasCreat(); //canvas creator function called
 	background(195, 2, 83); //Light Gray Background
 	testQueue();
+    coverQ = new ImageQueue();
 }
 
 /**
@@ -23,7 +27,8 @@ function setup() {
  * Summarize code that you add
  */
 function draw() {
-
+    background("black");
+	coverQ.display();
 }
 /**
  * canvasCreat : Canvas creator code and defaults
@@ -31,13 +36,54 @@ function draw() {
  */
 function canvasCreat(){
 	//Canvas setup
-    canvas = createCanvas(1000, 1000); // defining the canvas as a variable allows it to be versatile
-    canvas.position(0, 0); //due to the variable's versatility the DOM library allows to define position
-    canvas.style("z-index", "-1"); //due to the variable's versatility the DOM library allows to define the hirearchy of view/ z index (a css property)
-    colorMode(HSB, 360, 100, 100); //color mode set to HSB
-    //--------
-	noStroke(); //No stroke
+    createCanvas(1000, 1000); // defining the canvas
+
 }
+
+/**
+ * testQueue : Playing around with queues and using queue functions
+ */
 function testQueue(){
-	let myQueue= new queue([1,2,3,4])
+	let myQueue= new queue([1,2,3,4]);
+    myQueue.enqueue(5);
+    console.log("Queue: ", myQueue.toString(), ".");
+    console.log("Peek: ", myQueue.peek(), ".");
+    console.log("Queue contains 4? :", myQueue.contains(4), ".");
+    console.log("Queue size: ", myQueue.size, ".");
+    for (let i = 0; i < 4; i++) {
+		console.log("Queue dequeue: ", myQueue.dequeue(), ".");
+	}
+    console.log("Queue: ", myQueue.toString(), ".");
+    console.log("Queue size: ", myQueue.size, ".");
+    myQueue.enqueue(7);
+    myQueue.enqueue(8);
+    console.log("Peek: ", myQueue.peek(), ".");
+    console.log("Queue size: ", myQueue.size, ".");
+    myQueue.clear();
+    console.log("Queue: ", myQueue.toString(), ".");
+    console.log("Queue size: ", myQueue.size, ".");
+}
+
+/**
+ * addCover: Callback function that enqueues loaded cover images
+ * cover image: Takes in loaded images as params
+ */
+function addCover(coverImage){
+    coverQ.enqueue(coverImage);
+}
+
+/**
+ * keyTyped: On a key press checks for -, 0-9, and c key events
+ * and calls upon queue functions accordingly
+ */
+function keyTyped(){
+	if(key=="-"){
+		coverQ.dequeue(); //dequeues an image
+	}
+	if(key=="c"){
+		coverQ.clear(); //Clears all the queue objects - annihlation 
+	}
+	if((key>=0)&&(key<=9)){ //spawn a cover image
+		loadImage(covers[key],addCover);
+	}
 }
