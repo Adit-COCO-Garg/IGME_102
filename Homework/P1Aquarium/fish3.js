@@ -1,8 +1,6 @@
 /**
- * Adit Garg, 1/24/19
- * Wrapped class - creates a type of candy (child)
- * Properties:
- *  sugar: 10
+ * Adit Garg, 02/18/19
+ * fish1 class - creates a type of fish (child)
  */
 "use strict";
 
@@ -12,7 +10,6 @@ class fish3 extends Fish {
     }
 	display(y) {
        super.display(y,2);
-		
 	}
 
    

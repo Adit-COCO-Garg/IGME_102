@@ -1,8 +1,6 @@
 /**
- * Adit Garg, 1/24/19
- * Candy class -creates a type of candy (child)
- * Properties:
- * sugar=7
+ * Adit Garg, 02/18/19
+ * fish2 class - creates a type of fish (child)
  */
 "use strict";
 
