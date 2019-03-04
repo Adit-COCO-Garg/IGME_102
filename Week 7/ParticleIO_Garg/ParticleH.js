@@ -1,5 +1,5 @@
-/*
-* W. Michelle Harris adapted from Daniel Shiffman
+ /*
+* W. Michelle Harris adapted from Daniel Shiffman & Adit Garg
 * ParticleH class - 1 Particle that has COLOR and location,
 velocity, gravity, and a limited lifespan.
 * based on https://p5js.org/examples/simulate-particle-system.html

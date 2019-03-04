@@ -1,5 +1,5 @@
-/*
-* Daniel Shiffman with W. Michelle Harris
+ /*
+* Daniel Shiffman with W. Michelle Harris & Adit Garg
 * Particle class - 1 Particle that has location,
 velocity, gravity, and a limited lifespan.
 * based on https://p5js.org/examples/simulate-particle-system.html

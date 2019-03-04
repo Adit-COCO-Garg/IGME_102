@@ -1,5 +1,5 @@
 /*
- * Daniel Shiffman with W. Michelle Harris
+ * Daniel Shiffman with W. Michelle Harris & Adit Garg
  * ParticleSystem class - ParticleSystem that has
  * location and an array of particles.
  * based on https://p5js.org/examples/simulate-particle-system.html
@@ -50,14 +50,36 @@ class ParticleSystem {
 			}
 		}
 	}
-    display(){
-        for (let part of this.particles){
-            part.display();
-        }
-    }
-    loadParticle(particleData){
-        for (let [key, value] of particleData){
-            
-        }
-    }
+	/*
+	* Displays all particles within the particles array and calls individual display functions
+	*/
+	display() {
+		for (let part of this.particles) {
+			part.display();
+		}
+	}
+	/*
+	* finds the loaded data fomr the jsson file and creates new particles based on them and defineds their velocity and other variables to the saved json's variables
+	*/
+	loadData(particleData) {
+		for (let obj of particleData) {
+			let part;
+			if (obj["hue"] !== undefined) {
+				part = new ParticleH();
+				part.hue = obj.hue;
+			} else if (obj["char"] !== undefined) {
+				part = new ParticleT();
+				part.char = obj.char;
+			} else{
+				part= new Particle();
+			}
+			part.x=obj.x;
+			part.y=obj.y;
+			part.velX=obj.velX;
+			part.velY=obj.velY;
+			part.gravity=obj.gravity;
+			part.lifespan=obj.lifespan;
+			this.particles.push(part);
+		}
+	}
 }
