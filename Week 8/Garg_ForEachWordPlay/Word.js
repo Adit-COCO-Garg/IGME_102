@@ -1,7 +1,10 @@
 /**
  * Adit Garg
- * IGME-101: Assignment Name, m/d/18
- * Summarization of sketch activity
+ * IGME-102: foreach word play, 3/8/19
+ * WORD CLASS
+ 
+ **********THE ANIMATION WAS INSPIRED FROM ADAM LATOWSKA'S CODE*********
+ 
  */
 "use strict"; //catch some common coding errors
 
@@ -22,8 +25,11 @@ class Word{
 	display(x,y,lrp){
 		this.dx=50*sin(this.start)+this.range;
 		this.dy=50*cos(this.start)+this.range;
-		//text(this.word,x+lerp(this.dx,0,lrp),y+lerp(this.dy,(this.id+this.maxID/2)*20,lrp));//I am still tinkering around with this code
-		text(this.word,x+this.dx,y+this.dy);
+		if (lrp==undefined){
+			lrp=0;
+		}
+		text(this.word,x+lerp(this.dx,70,lrp),y+lerp(this.dy,(this.id+this.maxID/2)*20,lrp));//I am still tinkering around with this code
+		//text(this.word,x+this.dx,y+this.dy);
 		this.start+=this.spinner;
 	}
 }

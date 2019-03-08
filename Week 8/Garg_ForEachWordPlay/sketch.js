@@ -1,7 +1,12 @@
 /**
  * Adit Garg
- * IGME-102: Assignment Name, m/d/18
- * Summarization of sketch activity
+ * IGME-102: foreach word play, 3/8/19
+ * creates word clouds that just go around the canvas
+ * and when u hover over them they stop moving and 
+ * interpolate into a centeraligned paragraph.
+ 
+**********THE ANIMATION WAS INSPIRED FROM ADAM LATOWSKA'S CODE*********
+
  */
 "use strict"; //catch some common coding errors
 
@@ -28,10 +33,10 @@ function setup() {
  * Summarize code that you add
  */
 function draw() {
-	background("white"); //Light Gray Background
+	background("black");
 	word.display(mouseX, mouseY);
-	cloudyBoi.display();
-	cloudyBois.forEach((c)=>{c.display();})
+	cloudyBoi.displays();
+	cloudyBois.forEach((c)=>{c.displays();})
 }
 /**
  * canvasCreat : Canvas creator code and defaults
