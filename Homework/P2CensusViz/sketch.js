@@ -71,7 +71,9 @@ function printTract(fields) {
 function draw() {
 	background(195, 2, 83); //Light Gray Background
 	tractLocs.forEach(t=>{
-		ellipse(map(t.lat,currRange[0],currRange[1],0,w),map(t.long,currRange[2],currRange[3],0,h),10,10);
+		let mapX=map(t.lat,currRange[0],currRange[1],0,w);
+		let mapY=map(t.long,currRange[2],currRange[3],0,h);
+		ellipse(mapX,mapY,10,10);
 	})
 }
 /**
@@ -89,7 +91,11 @@ function canvasCreat() {
 	//--------
 	noStroke(); //No stroke
 }
-
+function windowResized() {
+	h=innerHeight
+	w=innerWidth
+	canvas = resizeCanvas(innerWidth,innerHeight);
+}
 /**
  * readFail: spits error message when relevant
  */
