@@ -33,23 +33,7 @@ input[type=range]:hover {
     opacity: 1;
 }
 
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #e40362;
-    cursor: pointer;
-}
 
-input[type=range]::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #e40362;
-    cursor: pointer;
-}
 /*Navbar*/
 .navbar {
     position:absolute;
@@ -99,7 +83,6 @@ input[type=range]::-moz-range-thumb {
 }
 
 /*header ends here*/
-
 
 #contentContainer {
 	position: absolute;
