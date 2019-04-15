@@ -1,12 +1,7 @@
-class RadioUI {
+class CheckBox {
     constructor(prompt) {
-        this.id = RadioUI.getCounter() - 1;
-        createSpan(this.id +  ". " + prompt + ":");
-        this.state = "off";this.radio = createRadio();
-        this.radio.option("On", this.id + "|on");
-        this.radio.option("Off", this.id + "|off");
-        this.radio.value(this.id + "|off");
-        this.radio.changed(RadioUI.radioCallback);
+        this.id = CheckBox.getCounter() - 1;
+        this.CBox = createCheckbox('Display', false);
     }
     static radioCallback() {//"this" will be a RADIO, not the class
         let [id, state] = this.value().split("|");

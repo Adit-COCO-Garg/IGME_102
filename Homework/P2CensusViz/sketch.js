@@ -8,7 +8,7 @@
 //Global variables
 var canvas, tractLocs = [],
     tractData = [],
-    currRange, currDRange, h, w, tloc, tdat, f, g, colorScale = chroma.scale(['yellow', 'navy']).mode('hsl');;
+    currRange, currDRange, h, w, tloc, tdat, f, g, colorScale = chroma.scale(['yellow', 'navy']).mode('hsl'),uiControl={};
 
 function preload() {
     loadStrings("2017_gaz_tracts_36.txt", readTracts, readFail)
@@ -81,6 +81,7 @@ function finder(t) {
  * Summarize code that you add
  */
 function setup() {
+	setupUiControl();
     canvasCreat(); //canvas creator function called
     background(195, 2, 83); //Light Gray Background
     currRange = mapper(tractData);
@@ -92,6 +93,13 @@ function setup() {
 
 }
 
+function setupUiControl(){
+	
+	uiControl.cb1 = createCheckbox("Race: ",true);
+	uiControl.cb1.style("z-index", "100")
+	uiControl.cb1.position(620,920)
+	
+}
 function mapper(tractD) {
     let tx = [],
         ty = []
@@ -108,7 +116,8 @@ function Smapper(tract) {
         t3 = [],
         t4 = [],
         t5 = [],
-        t6 = [],t7 = [],t8 = [],t9 = [];
+        t6 = [],
+		t7 = [],t8 = [],t9 = [];
     tract.forEach(t => {
         if (t.medIncome>0) {
             t1.push(t.population);
@@ -180,7 +189,7 @@ function dataMapper() {
     tractData.forEach(t => {
         t.xPos = map(t.lat, currRange[0], currRange[1], w / 20, w - (w / 20));
         t.yPos = map(t.long, currRange[2], currRange[3], h / 20, h - (h / 20));
-        t.popMapped = map(t.population, currDRange[0], currDRange[1], w / 100, w / 90); //color
+        t.popMapped = map(t.population, currDRange[0], currDRange[1], w / 200, w / 180); //color
         t.mPopMapped = (t.mPop) / t.population; //arcs
         t.fPopMapped = (t.fPop) / t.population; //arcs
         t.medIncomeMapped = map(t.medIncome, currDRange[6], currDRange[7], 0, 1); //hover?

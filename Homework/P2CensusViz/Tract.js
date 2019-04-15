@@ -23,7 +23,57 @@ class Tract {
         this.whiteMapped = 0;
         this.asianMapped = 0;
         this.blackMapped = 0;
+		Tract.controller1();
+		Tract.controller2();
+		Tract.controller3();
+		Tract.controller4();
+		Tract.controller5();
+		Tract.controller6();
+		
+		
     }
+	static controller1(){
+		this.control = createSlider(-100, 100);
+        this.control.style("z-index", "100");
+        this.control.size(70);
+        this.control.position(620,120);
+		console.log(this.control.value());
+	}
+	static controller2(){
+		this.control2 = createSlider(-100, 100);
+        this.control2.style("z-index", "100");
+        this.control2.size(70);
+        this.control2.position(620,220);
+		console.log(this.control.value());
+	}
+	static controller3(){
+		this.control3 = createSlider(-100, 100);
+        this.control3.style("z-index", "100");
+        this.control3.size(70);
+        this.control3.position(620,320);
+		console.log(this.control.value());
+	}
+	static controller4(){
+		this.control4 = createSlider(-100, 100);
+        this.control4.style("z-index", "100");
+        this.control4.size(70);
+        this.control4.position(620,420);
+		console.log(this.control.value());
+	}
+	static controller5(){
+		this.control5 = createSlider(-100, 100);
+        this.control5.style("z-index", "100");
+        this.control5.size(70);
+        this.control5.position(620,520);
+		console.log(this.control.value());
+	}
+	static controller6(){
+		this.control6 = createSlider(-100, 100);
+        this.control6.style("z-index", "100");
+        this.control6.size(70);
+        this.control6.position(620,620);
+		console.log(this.control.value());
+	}
     loadData(tracts) {
         console.log(tracts)
         tracts.forEach(fields => {
@@ -36,6 +86,9 @@ class Tract {
             }
         })
     }
+	modifier(){
+		t=new CheckBox();
+	}
     display() {
         let INCscale = chroma.scale();
         let ERGB = INCscale(this.medIncomeMapped);
@@ -74,7 +127,7 @@ class Tract {
         arc(this.xPos, this.yPos, this.popMapped*1.50, this.popMapped*1.50, val, val + this.blackMapped);
         
         
-        let hueVal = map(this.popMapped, w / 100, w / 90, 0, 1);
+        let hueVal = map(this.popMapped, w / 200, w / 180, 0, 1);
         let CRGB = colorScale(hueVal);
         CRGB = CRGB._rgb;
         fill(CRGB[0], CRGB[1], CRGB[2]);

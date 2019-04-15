@@ -1,0 +1,163 @@
+/*Fonts imported via google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Imprima');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+
+
+/* Default Styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Imprima', sans-serif;
+	font-weight: 400;
+    height:100px;
+}
+
+/* Default Styles End */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+input[type=range]:hover {
+    opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e40362;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #e40362;
+    cursor: pointer;
+}
+/*Navbar*/
+.navbar {
+    position:absolute;
+	width:35vw;
+	top:514px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	text-align: center;
+	float: right;
+	overflow: auto;
+	margin: 20px;
+}
+
+.navbar a {
+	display: block;
+	color: white;
+	padding: 2vh 3.85vw;
+	text-decoration: none;
+	background-color: black;
+	color: white;
+	border-bottom-style: solid;
+	border-width: thin;
+	border-color: hsla(195, 2%, 83%, 1);
+	text-align: center;
+}
+
+.navbar a:hover {
+	background-color: #FC046D;
+}
+
+.feed {
+	top: 66.9vh;
+}
+
+/* Navbar ends */
+
+/* Header */
+.header {
+    
+	text-align: center;
+	padding: 2vh 0vw;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	background-color: black;
+	/*	background-image: url('https://i.kinja-img.com/gawker-media/image/upload/c_lfill,w_768/fduvechfos52ydnhtm2e.png');*/
+}
+
+/*header ends here*/
+
+
+#contentContainer {
+	position: absolute;
+	background-color: hsla(195, 2%, 83%, 1);
+	/*	float: left;*/
+	/*	Setting the position of the div via vh and vw values so margins aren't required*/
+	top: 7.9vh;
+	left: 1.2vw;
+	width: 39.4vw;
+	padding: 2vh;
+	color: black;
+}
+
+.footfooter {
+	width: 100%;
+	position: absolute;
+	top: 119.3vh;
+	text-align: center;
+	padding: 2vh 0vw;
+	color: white;
+	background-color: black;
+}
+
+/* The following code is adapted from: https://webflake.sx/topic/20860-made-with-love-on-footer/*/
+.devunit {
+	font-family: 'Lato', sans-serif;
+	font-size: 0.8em;
+}
+
+.love {
+	display: inline-block;
+	position: relative;
+	top: .2em;
+	font-size: 1.4em;
+	color: #e74c3c;
+	-webkit-transform: scale(.9);
+	-moz-transform: scale(.9);
+	transform: scale(.9);
+	-webkit-animation: love .5s infinite linear alternate-reverse;
+	-moz-animation: love .5s infinite linear alternate-reverse;
+	animation: love .5s infinite linear alternate-reverse;
+}
+
+@-webkit-keyframes love {
+	to {
+		-webkit-transform: scale(1.2);
+	}
+}
+
+@-moz-keyframes love {
+	to {
+		-moz-transform: scale(1.2);
+	}
+}
+
+@keyframes love {
+	to {
+		transform: scale(1.2);
+	}
+}
+/*https://webflake.sx/topic/20860-made-with-love-on-footer/*/
