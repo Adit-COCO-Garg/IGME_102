@@ -83,14 +83,13 @@ function finder(t) {
  * Summarize code that you add
  */
 function setup() {
-
+	currRange = mapper(tractData);
+	currDRange = Smapper(tractData);
 	canvasCreat(); //canvas creator function called
 	setupUiControl();
 	background(195, 2, 83); //Light Gray Background
-	currRange = mapper(tractData);
-	currDRange = Smapper(tractData);
 	chroma.scale(['yellow', 'navy']).mode('hsl');
-	dataMapper();
+	dataMapper(4);
 	background(207, 211, 212); //Light Gray Background
 	tractData.forEach(t => t.display())
 
@@ -111,10 +110,12 @@ function setupUiControl() {
 	uiControlPop.cb4 = createCheckbox("Race: All", true);
 	uiControlPop.cb4.style("z-index", "100")
 	uiControlPop.cb4.position(w * 0.89, h * 0.07)
-	uiControlPop.cb1.changed(dataMapper)
-	uiControlPop.cb2.changed(dataMapper)
-	uiControlPop.cb3.changed(dataMapper)
-	uiControlPop.cb4.changed(dataMapper)
+	uiControlPop.cb1.changed(dataMapper1)
+	uiControlPop.cb2.changed(dataMapper2)
+	uiControlPop.cb3.changed(dataMapper3)
+	uiControlPop.cb4.changed(dataMapper4)
+
+
 
 	//male fem
 	uiControlSex.cb1 = createCheckbox("Sex: Male", true);
@@ -126,10 +127,93 @@ function setupUiControl() {
 	uiControlSex.cb3 = createCheckbox("Sex: All", true);
 	uiControlSex.cb3.style("z-index", "100")
 	uiControlSex.cb3.position(w * 0.89, h * 0.19)
-
-
-
+	uiControlSex.cb1.changed(dataMapper5)
+	uiControlSex.cb2.changed(dataMapper6)
+	uiControlSex.cb3.changed(dataMapper7)
 }
+
+function dataMapper1() {
+	console.log("oof");
+	dataMapper(1);
+	tractData.forEach(t => t.display())
+}
+
+function dataMapper2() {
+	console.log("oof");
+	dataMapper(2);
+	tractData.forEach(t => t.display())
+}
+
+function dataMapper3() {
+	console.log("oof");
+	dataMapper(3);
+	tractData.forEach(t => t.display())
+}
+
+function dataMapper4() {
+	console.log("oof");
+	dataMapper(4);
+	tractData.forEach(t => t.display())
+}
+
+function dataMapper5() {
+	console.log("oof5");
+	dataMapperSex(1);
+	tractData.forEach(t => t.display())
+}
+
+function dataMapper6() {
+	console.log("oof6");
+	dataMapperSex(2);
+	tractData.forEach(t => t.display())
+}
+
+function dataMapper7() {
+	console.log("oof7");
+	dataMapperSex(3);
+	tractData.forEach(t => t.display())
+}
+
+
+
+function dataMapperSex(n) {
+	let tot = 0;
+	let counter = 0;
+	if (n == 3) {
+		if (uiControlSex.cb3.checked()) {
+			uiControlSex.cb1.checked(true);
+			uiControlSex.cb2.checked(true);
+			//
+			//			tot = parseInt(t.black) + parseInt(t.asian) + parseInt(t.white);
+		} else {
+			uiControlSex.cb1.checked(false);
+			uiControlSex.cb2.checked(false);
+			counter = 0;
+			tot = 0;
+		}
+	} else {
+		if (uiControlSex.cb1.checked()) {
+			counter++;
+		} else {
+			uiControlSex.cb3.checked(false);
+		}
+		if (uiControlSex.cb2.checked()) {
+			counter++;
+		} else {
+			uiControlSex.cb3.checked(false);
+		}
+		if (counter >= 2) {
+			uiControlSex.cb3.checked(true);
+			//			tot = parseInt(t.black) + parseInt(t.asian) + parseInt(t.white);
+
+		}
+
+	}
+}
+
+
+
+
 
 function mapper(tractD) {
 	let tx = [],
@@ -173,13 +257,6 @@ function Smapper(tract) {
  * reformating them based on datatypes created before
  */
 function printTract(fields) {
-	//	let count = new Intl.NumberFormat('en-US');
-	//	let percent = new Intl.NumberFormat('en-US', {
-	//		style: 'percent'
-	//	});
-	//	let dollars = new Intl.NumberFormat('en-US', {
-	//		style: 'currency',currency:"USD"
-	//	});
 	console.table(fields);
 
 }
@@ -188,7 +265,6 @@ function printTract(fields) {
  * Summarize code that you add
  */
 function draw() {
-
 
 }
 
@@ -215,10 +291,17 @@ function windowResized() {
 	canvas = resizeCanvas(innerWidth, innerHeight);
 	dataMapper();
 	background(207, 211, 212); //Light Gray Background
+	uiControlPop.cb1.position(w * 0.89, h * 0.01)
+	uiControlPop.cb2.position(w * 0.89, h * 0.03)
+	uiControlPop.cb3.position(w * 0.89, h * 0.05)
+	uiControlPop.cb4.position(w * 0.89, h * 0.07)
+	uiControlSex.cb1.position(w * 0.89, h * 0.15)
+	uiControlSex.cb2.position(w * 0.89, h * 0.17)
+	uiControlSex.cb3.position(w * 0.89, h * 0.19)
 	tractData.forEach(t => t.display())
 }
 
-function dataMapper() {
+function dataMapper(n) {
 	tractData.forEach(t => {
 		t.xPos = map(t.lat, currRange[0], currRange[1], w / 20, w - (w / 20));
 		t.yPos = map(t.long, currRange[2], currRange[3], h / 20, h - (h / 20));
@@ -230,41 +313,54 @@ function dataMapper() {
 		t.povertyFMapped = map(t.povertyF, currDRange[10], currDRange[11], 200, 300); //sub arcs?
 		let tot = 0;
 		let counter = 0;
-		if (uiControlPop.cb4.checked()) {
-			uiControlPop.cb4.checked(true);
-			counter=3;
-		} 
-		if (uiControlPop.cb1.checked()) {
-			console.log("WHITE");
-			tot += parseInt(t.white);
-			counter++;
-		} 
-		if (uiControlPop.cb2.checked()) {
-			console.log("ASIAN");
-			tot += parseInt(t.asian);
-			counter++;
-		} 
-		if (uiControlPop.cb3.checked()) {
-			console.log("BLACK");
-			tot += parseInt(t.black);
-			counter++;
-		} 
-		if (counter<3) {
-			uiControlPop.cb4.checked(false);
-		}
-		if (counter>=3) {
-			uiControlPop.cb4.checked(true);
-			uiControlPop.cb1.checked(true)
-			uiControlPop.cb2.checked(true)
-			uiControlPop.cb3.checked(true)
-			tot=parseInt(t.black)+parseInt(t.asian)+parseInt(t.white);
-			
-		}
-		console.log(tot);
+		if (n == 4) {
+			if (uiControlPop.cb4.checked()) {
+				uiControlPop.cb1.checked(true);
+				uiControlPop.cb2.checked(true);
+				uiControlPop.cb3.checked(true);
+				tot = parseInt(t.black) + parseInt(t.asian) + parseInt(t.white);
+			} else {
+				uiControlPop.cb1.checked(false);
+				uiControlPop.cb2.checked(false);
+				uiControlPop.cb3.checked(false);
+				counter = 0;
+				tot = 0;
+			}
+		} else {
+			if (uiControlPop.cb1.checked()) {
+				console.log("WHITE");
+				tot += parseInt(t.white);
+				counter++;
+			} else {
+				uiControlPop.cb4.checked(false);
+			}
+			if (uiControlPop.cb2.checked()) {
+				console.log("ASIAN");
+				tot += parseInt(t.asian);
+				counter++;
+			} else {
+				uiControlPop.cb4.checked(false);
+			}
+			if (uiControlPop.cb3.checked()) {
+				console.log("BLACK");
+				tot += parseInt(t.black);
+				counter++;
+			} else {
+				uiControlPop.cb4.checked(false);
+				tot = 0;
+				counter = 0;
+			}
+			if (counter >= 3) {
+				uiControlPop.cb4.checked(true);
+				tot = parseInt(t.black) + parseInt(t.asian) + parseInt(t.white);
 
-		console.log("w", t.white)
-		console.log("b", t.black)
-		console.log("a", t.asian)
+			}
+
+		}
+		//		console.log(tot);
+		//		console.log("w", t.white)
+		//		console.log("b", t.black)
+		//		console.log("a", t.asian)
 		if (tot != 0) {
 			t.whiteMapped = (t.white / tot) * 2 * PI
 			t.asianMapped = (t.asian / tot) * 2 * PI
